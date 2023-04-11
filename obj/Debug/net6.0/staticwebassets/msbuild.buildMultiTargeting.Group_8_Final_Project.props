@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Group_8_Final_Project.props" />
+</Project>
