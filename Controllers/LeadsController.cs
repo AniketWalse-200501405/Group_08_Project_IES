@@ -25,7 +25,7 @@ namespace Group_8_Final_Project.Controllers
         }
 
         // GET: Leads
-        [Authorize(Roles = "Manager,Sales")]
+        [Authorize(Roles = "Manager,User,Admin")]
         public async Task<IActionResult> Index()
         {
               return _context.SalesLead != null ? 
@@ -33,7 +33,7 @@ namespace Group_8_Final_Project.Controllers
                           Problem("Entity set 'ApplicationDbContext.SalesLead'  is null.");
         }
 
-        [Authorize(Roles = "Manager,Sales")]
+        [Authorize(Roles = "Manager,User,Admin")]
         // GET: Leads/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -53,13 +53,13 @@ namespace Group_8_Final_Project.Controllers
         }
 
         // GET: Leads/Create
-        [Authorize(Roles = "Manager,Sales")]
+        [Authorize(Roles = "Manager,Admin")]
         public IActionResult Create()
         {
             return View();
         }
 
-        [Authorize(Roles = "Manager,Sales")]
+        [Authorize(Roles = "Manager,Sales,Admin")]
         // POST: Leads/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -76,7 +76,7 @@ namespace Group_8_Final_Project.Controllers
             return View(salesLeadEntity);
         }
 
-        [Authorize(Roles = "Manager,Sales")]
+        [Authorize(Roles = "Manager,Admin")]
         // GET: Leads/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -93,7 +93,7 @@ namespace Group_8_Final_Project.Controllers
             return View(salesLeadEntity);
         }
 
-        [Authorize(Roles = "Manager,Sales")]
+        [Authorize(Roles = "Manager,Admin")]
         // POST: Leads/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -129,7 +129,7 @@ namespace Group_8_Final_Project.Controllers
             return View(salesLeadEntity);
         }
 
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Admin")]
         // GET: Leads/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -148,7 +148,7 @@ namespace Group_8_Final_Project.Controllers
             return View(salesLeadEntity);
         }
 
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Admin")]
         // POST: Leads/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -168,7 +168,7 @@ namespace Group_8_Final_Project.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SalesLeadEntityExists(int id)
+          private bool SalesLeadEntityExists(int id)
         {
           return (_context.SalesLead?.Any(e => e.Id == id)).GetValueOrDefault();
         }

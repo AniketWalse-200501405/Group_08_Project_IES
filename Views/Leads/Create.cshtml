@@ -37,6 +37,18 @@
                 <input asp-for="Source" class="form-control" />
                 <span asp-validation-for="Source" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+                <label asp-for="IsApproved" class="control-label"></label>
+                <div>
+                    <label class="radio-inline">
+                        <input type="radio" asp-for="IsApproved" value="true" checked /> Approve
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" asp-for="IsApproved" value="false" /> Reject
+                    </label>
+                </div>
+            </div>*@
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

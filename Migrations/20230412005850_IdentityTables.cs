@@ -5,7 +5,7 @@
 namespace Group_8_Final_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class IndentityTables : Migration
+    public partial class IdentityTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

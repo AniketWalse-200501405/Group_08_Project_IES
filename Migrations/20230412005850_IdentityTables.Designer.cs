@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Group_8_Final_Project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230410224254_IndentityTables")]
-    partial class IndentityTables
+    [Migration("20230412005850_IdentityTables")]
+    partial class IdentityTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,9 @@ namespace Group_8_Final_Project.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .IsRequired()
